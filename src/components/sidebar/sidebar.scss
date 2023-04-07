@@ -1,5 +1,6 @@
 //variables 
 $logo-color: #c6538c;
+$purple-color :  #7451f8;
 $border-color: rgb(230 , 227,227);
 
 
@@ -16,7 +17,7 @@ $border-color: rgb(230 , 227,227);
         height: 50px;
         align-items: center;
         justify-content: center;
-        color: $base-color;
+        color: $logo-color;
 
         .logo{
             font-style: 20px;
@@ -31,12 +32,69 @@ $border-color: rgb(230 , 227,227);
 
 
     .center{
-        padding-left: 10px;
+        padding-left: 16px;
 
         ul{
             list-style: none;
             margin: 0;
             padding: 0;
+        }
+
+        .title{
+            font-size: 16px;
+            font-weight: bold;
+            color: #999;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        li{
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            cursor: pointer;
+            transition:all ease-in-out .5s;
+
+            &:hover{
+                background-color: #ece8ff;
+            }
+
+            .icon {
+                font-size: 18px;
+                color: $purple-color ;
+            }
+
+            span{
+                font-size: 13px;
+                margin-left: 10px;
+            }
+            
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+
+
+    .bottom{
+        display: flex;
+        align-items: center;
+        margin: 16px;
+
+        .colorOption{
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid  $purple-color ;
+            margin: 5px;
+            cursor: pointer;
+            &:nth-child(1){
+                background-color: whitesmoke;
+            }
+            &:nth-child(2){
+                background-color: #333;
+            }
+           
         }
     }
 
