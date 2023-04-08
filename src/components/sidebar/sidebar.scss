@@ -20,19 +20,19 @@ $border-color: rgb(230 , 227,227);
         color: $logo-color;
 
         .logo{
-            font-style: 20px;
-            font-weight: bold;
+            font-size: 28px;
+            font-weight: bolder;
         }
     }
 
     hr{
         height: 0;
-        border:.5px solid $border-color;
+        border: .5px solid $border-color;
     }
 
 
     .center{
-        padding-left: 16px;
+        padding-left: 8px;
 
         ul{
             list-style: none;
@@ -59,6 +59,10 @@ $border-color: rgb(230 , 227,227);
                 background-color: #ece8ff;
             }
 
+            &:has(> a.acitve){
+                background-color: #ece8ff;
+            }
+
             .icon {
                 font-size: 18px;
                 color: $purple-color ;
@@ -80,7 +84,6 @@ $border-color: rgb(230 , 227,227);
         display: flex;
         align-items: center;
         margin: 16px;
-
         .colorOption{
             width: 20px;
             height: 20px;

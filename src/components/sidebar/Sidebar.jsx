@@ -11,7 +11,12 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
+import { useContext } from "react";
+
+import { datkModeContext } from "../../context/dark-mode-context";
+
+
 import "./sidebar.scss";
 const MENU_LIST_ITEMS = [
   {
@@ -21,7 +26,7 @@ const MENU_LIST_ITEMS = [
   {
     title: "Dashboard",
     icon: <DashboardIcon className="icon" />,
-    to: "",
+    to: "/",
     type: "link",
   },
   {
@@ -31,7 +36,7 @@ const MENU_LIST_ITEMS = [
   {
     title: "Users",
     icon: <PersonOutlineIcon className="icon" />,
-    to: "",
+    to: "users",
     type: "link",
   },
   {
@@ -108,6 +113,9 @@ const MENU_LIST_ITEMS = [
   },
 ];
 function Sidebar() {
+
+  const ctx = useContext(datkModeContext);
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -116,25 +124,25 @@ function Sidebar() {
       <hr />
       <div className="center">
         <ul>
-          {MENU_LIST_ITEMS.map((item) =>
+          {MENU_LIST_ITEMS.map((item , index) =>
             item.type === "header" ? (
-              <p key={item.title} className="title">
+              <p key={item.title + index} className="title">
                 {item.title}
               </p>
             ) : (
-              <li>
+              <li key={item.title + index}>
                 {item.icon}
-                <Link key={item.title} to={item.to}>
+                <NavLink to={item.to}>
                   <span>{item.title}</span>
-                </Link>
+                </NavLink>
               </li>
             )
           )}
         </ul>
       </div>
       <div className="bottom">
-        <div className="colorOption"></div>
-        <div className="colorOption"></div>
+        <div className="colorOption" onClick={()=>{ctx.toggle({type : 'light'})}}></div>
+        <div className="colorOption" onClick={()=>{ctx.toggle({type : 'dark'})}}></div>
       </div>
     </div>
   );

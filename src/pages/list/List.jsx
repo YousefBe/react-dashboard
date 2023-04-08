@@ -1,9 +1,12 @@
 import React from 'react'
 import './List.scss'
+import Datatables from '../../components/datatables/Datatables'
 
 function List() {
   return (
-    <div>List</div>
+    <div>
+      <Datatables />
+    </div>
   )
 }
 
